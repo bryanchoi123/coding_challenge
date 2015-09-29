@@ -19,10 +19,6 @@ logFile = open(LOG_FILE, "r")
 
 lensFileName = ""
 fiducialFound = False
-minTime = datetime.datetime.strptime("18:07:05:422", "%H:%M:%S:%f")
-maxTime = datetime.datetime.strptime("16:29:04:188", "%H:%M:%S:%f")
-minScore = 100.0
-maxScore = 0.0
 for line in logFile:
     # parse out timestamp from rest of line
     timeStampString = line[:12]
@@ -55,16 +51,6 @@ for line in logFile:
         scoreValueSplit = score.split(": ")
         scoreValue = float(scoreValueSplit[1])
         scoreMappings[lensFileName].append((timeStamp, scoreValue))
-
-        # do comparisons for maxes/mins
-        if timeStamp < minTime:
-            minTime = timeStamp
-        if timeStamp > maxTime:
-            maxTime = timeStamp
-        if scoreValue < minScore:
-            minScore = scoreValue
-        if scoreValue > maxScore:
-            maxScore = scoreValue
 
 logFile.close()
 
