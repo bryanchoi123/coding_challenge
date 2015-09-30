@@ -1,0 +1,1 @@
+Because the video is too large to upload to GitHub, the video can be found at [this link](https://drive.google.com/file/d/0B4qEH0v21-IEVkh6TlJJTGVFSDg/view?usp=sharing)
