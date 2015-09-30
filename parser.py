@@ -5,6 +5,7 @@ import datetime
 
 LOG_FILE = "./MRSI_VISION.LOG"
 MAP_FILE = "./filename-mappings.csv"
+IMG_FILE = "./generated_plot.png"
 
 # get filename mappings
 fileMappings = mappings(MAP_FILE)
@@ -64,7 +65,7 @@ axes = plt.gca()
 axes.xaxis.set_major_formatter(axesFormat)
 
 # set up y-axis
-plt.ylim(65, 100)
+plt.ylim(60, 100)
 
 for lens in sorted(scoreMappings.keys()):
     scores = []
@@ -75,6 +76,7 @@ for lens in sorted(scoreMappings.keys()):
     # change dates to numbers to use for x-axis
     dates = md.date2num(times)
     plt.plot(dates, scores, "o-", label=fileMappings[lens])
-    plt.legend(loc="lower left", fontsize="medium")
+    
+plt.legend(loc="lower left", fontsize="small")
 plt.grid()
-plt.show()
+plt.savefig(IMG_FILE)
